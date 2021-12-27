@@ -11,16 +11,85 @@
     <link rel="icon" type="image/png" href="favicon/favicon.ico">
 </head>
 <body>
-    <div id="strength_bonus_box">
-        <label for="strength_bonus">Str: </label>
-        <input type="number" id="strength_bonus" name="strength_bonus" value="2">
-        <br/>
-    </div>
-    <div id="dexterity_bonus_box">
-        <label for="dexterity_bonus">Dex: </label>
-        <input type="number" id="dexterity_bonus" name="dexterity_bonus" value="4">
-        <br/>
-    </div>
+    <table id="ability_score_table">
+        <tr>
+            <th>Ability Name</th>
+            <th>Ability Score</th>
+            <th>Ability Modifier</th>
+        </tr>
+        <tr>
+            <td>
+                <label for="strength_score">STR:</label>
+            </td>
+            <td>
+                <input type="number" id="strength_score" name="strength_score" value="14">
+            </td>
+            <td>
+                <p id="strength_modifier">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="dexterity_score">DEX:</label>
+            </td>
+            <td>
+                <input type="number" id="dexterity_score" value="18">
+            </td>
+            <td>
+                <p id="dexterity_modifier">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="dexterity_score">CON:</label>
+            </td>
+            <td>
+                <input type="number" id="constitution_score" value="12">
+            </td>
+            <td>
+                <p id="constitution_modifier">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="dexterity_score">INT:</label>
+            </td>
+            <td>
+                <input type="number" id="intelligence_score" value="12">
+            </td>
+            <td>
+                <p id="intelligence_modifier">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="wisdom_score">WIS:</label>
+            </td>
+            <td>
+                <input type="number" id="wisdom_score" value="9">
+            </td>
+            <td>
+                <p id="wisdom_modifier">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="charisma_score_label">
+                    <label for="charisma_score">CHA:</label>
+                </div>
+            </td>
+            <td>
+                <div id="charisma_score_box">
+                    <input type="number" id="charisma_score" value="12">
+                </div>
+            </td>
+            <td>
+                <div id="charisma_modifier_box">
+                    <p id="charisma_modifier">
+                </div>
+            </td>
+        </tr>
+    </table>
     <div id="base_attack_bonus_box">
         <label for="base_attack_bonus">BAB: </label>
         <select id="base_attack_bonus">
