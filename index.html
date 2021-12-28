@@ -66,7 +66,7 @@
                 <label for="wisdom_score">WIS:</label>
             </td>
             <td>
-                <input type="number" id="wisdom_score" value="9">
+                <input type="number" id="wisdom_score" value="12">
             </td>
             <td>
                 <p id="wisdom_modifier">
@@ -80,7 +80,7 @@
             </td>
             <td>
                 <div id="charisma_score_box">
-                    <input type="number" id="charisma_score" value="12">
+                    <input type="number" id="charisma_score" value="9">
                 </div>
             </td>
             <td>
@@ -92,9 +92,7 @@
     </table>
     <div id="base_attack_bonus_box">
         <label for="base_attack_bonus">BAB: </label>
-        <select id="base_attack_bonus">
-            <option value="2">2</option>
-        </select>
+        <input type="text" id="base_attack_bonus" value="3" pattern="^[0-9]+([ /,][0-9]+)*$">
         <br/>
     </div>
     <div id="weapon_select_box">
@@ -104,12 +102,17 @@
     </div>
     <div id="range_to_target_box" style="display: none;">
         <label for="range_to_target">Range? </label>
-        <input type="number" id="range_to_target" name="range_to_target" step="5" value="30">
+        <input type="number" id="range_to_target" step="5" value="30">
+        <br/>
+    </div>
+    <div id="rapid_shot_box" style="display: none;">
+        <label for="rapid_shot">Rapid Shot? </label>
+        <input type="checkbox" id="rapid_shot">
         <br/>
     </div>
     <div id="two_handed_attack_box" style="display: none;">
         <label for="two_handed_attack">Two Handed? </label>
-        <input type="checkbox" id="two_handed_attack" name="two_handed_attack">
+        <input type="checkbox" id="two_handed_attack">
         <br/>
     </div>
 
