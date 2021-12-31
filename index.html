@@ -15,14 +15,18 @@
         <tr>
             <th>Ability Name</th>
             <th>Ability Score</th>
+            <th>Temp Adjustment</th>
             <th>Ability Modifier</th>
         </tr>
         <tr>
             <td>
-                <label for="strength_score">STR:</label>
+                <p>STR:</p>
             </td>
             <td>
-                <input type="number" id="strength_score" name="strength_score" value="14">
+                <p id="strength_score">
+            </td>
+            <td>
+                <input type="number" id="strength_temp_adjustment" value ="0">
             </td>
             <td>
                 <p id="strength_modifier">
@@ -30,10 +34,13 @@
         </tr>
         <tr>
             <td>
-                <label for="dexterity_score">DEX:</label>
+                <p>DEX:</p>
             </td>
             <td>
-                <input type="number" id="dexterity_score" value="18">
+                <p id="dexterity_score">
+            </td>
+            <td>
+                <input type="number" id="dexterity_temp_adjustment" value ="0">
             </td>
             <td>
                 <p id="dexterity_modifier">
@@ -41,10 +48,13 @@
         </tr>
         <tr>
             <td>
-                <label for="dexterity_score">CON:</label>
+                <p>CON:</p>
             </td>
             <td>
-                <input type="number" id="constitution_score" value="12">
+                <p id="constitution_score">
+            </td>
+            <td>
+                <input type="number" id="constitution_temp_adjustment" value ="0">
             </td>
             <td>
                 <p id="constitution_modifier">
@@ -52,10 +62,13 @@
         </tr>
         <tr>
             <td>
-                <label for="dexterity_score">INT:</label>
+                <p>INT:</p>
             </td>
             <td>
-                <input type="number" id="intelligence_score" value="12">
+                <p id="intelligence_score">
+            </td>
+            <td>
+                <input type="number" id="intelligence_temp_adjustment" value ="0">
             </td>
             <td>
                 <p id="intelligence_modifier">
@@ -63,10 +76,13 @@
         </tr>
         <tr>
             <td>
-                <label for="wisdom_score">WIS:</label>
+                <p>WIS:</p>
             </td>
             <td>
-                <input type="number" id="wisdom_score" value="12">
+                <p id="wisdom_score">
+            </td>
+            <td>
+                <input type="number" id="wisdom_temp_adjustment" value ="0">
             </td>
             <td>
                 <p id="wisdom_modifier">
@@ -74,25 +90,22 @@
         </tr>
         <tr>
             <td>
-                <div id="charisma_score_label">
-                    <label for="charisma_score">CHA:</label>
-                </div>
+                <p>CHA:</p>
             </td>
             <td>
-                <div id="charisma_score_box">
-                    <input type="number" id="charisma_score" value="9">
-                </div>
+                <p id="charisma_score">
             </td>
             <td>
-                <div id="charisma_modifier_box">
-                    <p id="charisma_modifier">
-                </div>
+                <input type="number" id="charisma_temp_adjustment" value ="0">
+            </td>
+            <td>
+                <p id="charisma_modifier">
             </td>
         </tr>
     </table>
     <div id="base_attack_bonus_box">
         <label for="base_attack_bonus">BAB: </label>
-        <input type="text" id="base_attack_bonus" value="3" pattern="^[0-9]+([ /,][0-9]+)*$">
+        <p id="base_attack_bonus">
         <br/>
     </div>
     <div id="weapon_select_box">
