@@ -3,7 +3,9 @@ function openDatabase() {
             let openRequest = indexedDB.open('database.db', 4);
             openRequest.onupgradeneeded  = function(event) {
                 let db = openRequest.result;
-                db.deleteObjectStore("weapons");
+                if (db.objectStoreNames.contains("weapons")) {
+                    db.deleteObjectStore("weapons");
+                }
                 db.createObjectStore("weapons", { keyPath: "name" });
             };
             openRequest.onerror = function() {
