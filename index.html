@@ -9,156 +9,168 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="icon" type="image/png" href="favicon/favicon.ico">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="pathfinder.css">
+    <script type="text/javascript" src="weapons.json"></script>
 </head>
 <body>
-    <table id="ability_score_table">
-        <tr>
-            <th>Ability Name</th>
-            <th>Ability Score</th>
-            <th>Temp Adjustment</th>
-            <th>Ability Modifier</th>
-        </tr>
-        <tr>
-            <td>
-                <p>STR:</p>
-            </td>
-            <td>
-                <p id="strength_score">
-            </td>
-            <td>
-                <input type="number" id="strength_temp_adjustment" value ="0">
-            </td>
-            <td>
-                <p id="strength_modifier">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>DEX:</p>
-            </td>
-            <td>
-                <p id="dexterity_score">
-            </td>
-            <td>
-                <input type="number" id="dexterity_temp_adjustment" value ="0">
-            </td>
-            <td>
-                <p id="dexterity_modifier">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>CON:</p>
-            </td>
-            <td>
-                <p id="constitution_score">
-            </td>
-            <td>
-                <input type="number" id="constitution_temp_adjustment" value ="0">
-            </td>
-            <td>
-                <p id="constitution_modifier">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>INT:</p>
-            </td>
-            <td>
-                <p id="intelligence_score">
-            </td>
-            <td>
-                <input type="number" id="intelligence_temp_adjustment" value ="0">
-            </td>
-            <td>
-                <p id="intelligence_modifier">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>WIS:</p>
-            </td>
-            <td>
-                <p id="wisdom_score">
-            </td>
-            <td>
-                <input type="number" id="wisdom_temp_adjustment" value ="0">
-            </td>
-            <td>
-                <p id="wisdom_modifier">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>CHA:</p>
-            </td>
-            <td>
-                <p id="charisma_score">
-            </td>
-            <td>
-                <input type="number" id="charisma_temp_adjustment" value ="0">
-            </td>
-            <td>
-                <p id="charisma_modifier">
-            </td>
-        </tr>
-    </table>
-    <div id="base_attack_bonus_box">
-        <label for="base_attack_bonus">BAB: </label>
-        <p id="base_attack_bonus">
-        <br/>
+    <div id="nav_bar_box" style="display: none;">
+        <ul id="nav_bar" class="nav-bar">
+            <li class="nav-item" id="nav_item_character_sheet">Character Sheet</li>
+            <li class="nav-item" id="nav_item_character_levels">Character Levels</li>
+        </ul>
     </div>
-    <div id="weapon_select_box">
-        <label for="weapon_select">Weapon:</label>
-        <select id="weapon_select"></select>
-        <br/>
-    </div>
-    <div id="range_to_target_box" style="display: none;">
-        <label for="range_to_target">Range? </label>
-        <input type="number" id="range_to_target" step="5" value="30">
-        <br/>
-    </div>
-    <div id="rapid_shot_box" style="display: none;">
-        <label for="rapid_shot">Rapid Shot? </label>
-        <input type="checkbox" id="rapid_shot">
-        <br/>
-    </div>
-    <div id="two_handed_attack_box" style="display: none;">
-        <label for="two_handed_attack">Two Handed? </label>
-        <input type="checkbox" id="two_handed_attack">
-        <br/>
-    </div>
-
-    <br/>
-    <br/>
-    <div id="attack_bonus_box">
-        <label for="attack_bonus_table">Attack Bonus: </label>
-        <table id="attack_bonus_table">
+    <div id="character_sheet" style="display: none;">
+        <table id="ability_score_table">
             <tr>
-                <th>Source</th>
-                <th>Bonus</th>
+                <th>Ability Name</th>
+                <th>Ability Score</th>
+                <th>Temp Adjustment</th>
+                <th>Ability Modifier</th>
+            </tr>
+            <tr>
+                <td>
+                    <p>STR:</p>
+                </td>
+                <td>
+                    <p id="strength_score">
+                </td>
+                <td>
+                    <input type="number" id="strength_temp_adjustment" value ="0">
+                </td>
+                <td>
+                    <p id="strength_modifier">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>DEX:</p>
+                </td>
+                <td>
+                    <p id="dexterity_score">
+                </td>
+                <td>
+                    <input type="number" id="dexterity_temp_adjustment" value ="0">
+                </td>
+                <td>
+                    <p id="dexterity_modifier">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>CON:</p>
+                </td>
+                <td>
+                    <p id="constitution_score">
+                </td>
+                <td>
+                    <input type="number" id="constitution_temp_adjustment" value ="0">
+                </td>
+                <td>
+                    <p id="constitution_modifier">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>INT:</p>
+                </td>
+                <td>
+                    <p id="intelligence_score">
+                </td>
+                <td>
+                    <input type="number" id="intelligence_temp_adjustment" value ="0">
+                </td>
+                <td>
+                    <p id="intelligence_modifier">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>WIS:</p>
+                </td>
+                <td>
+                    <p id="wisdom_score">
+                </td>
+                <td>
+                    <input type="number" id="wisdom_temp_adjustment" value ="0">
+                </td>
+                <td>
+                    <p id="wisdom_modifier">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>CHA:</p>
+                </td>
+                <td>
+                    <p id="charisma_score">
+                </td>
+                <td>
+                    <input type="number" id="charisma_temp_adjustment" value ="0">
+                </td>
+                <td>
+                    <p id="charisma_modifier">
+                </td>
             </tr>
         </table>
-    </div>
+        <div id="base_attack_bonus_box">
+            <label for="base_attack_bonus">BAB: </label>
+            <p id="base_attack_bonus">
+            <br/>
+        </div>
+        <div id="weapon_select_box">
+            <label for="weapon_select">Weapon:</label>
+            <select id="weapon_select"></select>
+            <br/>
+        </div>
+        <div id="range_to_target_box" style="display: none;">
+            <label for="range_to_target">Range? </label>
+            <input type="number" id="range_to_target" step="5" value="30">
+            <br/>
+        </div>
+        <div id="rapid_shot_box" style="display: none;">
+            <label for="rapid_shot">Rapid Shot? </label>
+            <input type="checkbox" id="rapid_shot">
+            <br/>
+        </div>
+        <div id="two_handed_attack_box" style="display: none;">
+            <label for="two_handed_attack">Two Handed? </label>
+            <input type="checkbox" id="two_handed_attack">
+            <br/>
+        </div>
 
-    <br/>
-    <br/>
-    <div id="damage_box">
-        <label for="damage_table">Damage: </label>
-        <table id="damage_table">
-            <tr>
-                <th>Source</th>
-                <th>Damage</th>
-            </tr>
-        </table>
-    </div>
+        <br/>
+        <br/>
+        <div id="attack_bonus_box">
+            <label for="attack_bonus_total">Attack Bonus: </label>
+            <p id="attack_bonus_total"></p>
+        </div>
 
-    <br/>
-    <br/>
-    <div id="skills_box">
+        <br/>
+        <br/>
+        <div id="damage_box">
+            <label for="attack_bonus_total">Damage: </label>
+            <p id="damage_total"></p>
+        </div>
+
+        <br/>
+        <br/>
+        <div id="skills_box">
         <table id="skills_table"></table>
     </div>
+    </div>
+    <div id="character_levels" style="display: none;">
+        <table id="character_levels_table"></table>
+    </div>
 
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <label id="modal_table_label" for="modal_table"></label>
+            <table id="modal_table"></table>
+        </div>
+    </div>
+
+    <script src="db.js"></script>
     <script src="pathfinder.js"></script>
 </body>
 </html>

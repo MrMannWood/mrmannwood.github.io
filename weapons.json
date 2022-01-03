@@ -1,0 +1,64 @@
+[
+    {
+        "name": "Longbow",
+        "damage": {
+            "small": "1d6",
+            "medium": "1d8"
+        },
+        "criticalMultiplier": 3,
+        "type": "p",
+        "range": 100,
+        "category": "ranged",
+        "proficiency": "martial",
+        "groups": [ "bows" ]
+    },
+    {
+        "name": "Rapier",
+        "damage": {
+            "small": "1d4",
+            "medium": "1d6"
+        },
+        "criticalRange": 18,
+        "type": "p",
+        "category": "one_handed",
+        "proficiency": "martial",
+        "groups": [ "light_blades" ],
+        "special": [ "finesse" ]
+    },
+    {
+        "name": "Curved Blade, Elven",
+        "damage": {
+            "small": "1d8",
+            "medium": "1d10"
+        },
+        "criticalRange": 18,
+        "type": "s",
+        "category": "two_handed",
+        "proficiency": "exotic",
+        "groups": [ "heavy_blades" ]
+    },
+    {
+        "name": "Whip",
+        "damage": {
+            "small": "1d2",
+            "medium": "1d3"
+        },
+        "type": "s",
+        "category": "one_handed",
+        "proficiency": "exotic",
+        "groups": [ "flails" ],
+        "special": [ "disarm", "nonlethal", "reach", "trip" ]
+    },
+    {
+        "name": "Chain, Spiked",
+        "damage": {
+            "small": "1d6",
+            "medium": "2d4"
+        },
+        "type": "p",
+        "category": "two_handed",
+        "proficiency": "exotic",
+        "groups": [ "flails" ],
+        "special": [ "disarm", "trip" ]
+    }
+]
