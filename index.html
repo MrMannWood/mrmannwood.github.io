@@ -118,11 +118,6 @@
             <p id="base_attack_bonus">
             <br/>
         </div>
-        <div id="weapon_select_box">
-            <label for="weapon_select">Weapon:</label>
-            <select id="weapon_select"></select>
-            <br/>
-        </div>
         <div id="range_to_target_box" style="display: none;">
             <label for="range_to_target">Range? </label>
             <input type="number" id="range_to_target" step="5" value="30">
@@ -141,23 +136,17 @@
 
         <br/>
         <br/>
-        <div id="attack_bonus_box">
-            <label for="attack_bonus_total">Attack Bonus: </label>
-            <p id="attack_bonus_total"></p>
-        </div>
-
-        <br/>
-        <br/>
-        <div id="damage_box">
-            <label for="attack_bonus_total">Damage: </label>
-            <p id="damage_total"></p>
+        <div id="weapons_box">
+            <table id="weapons_table"></table>
         </div>
 
         <br/>
         <br/>
         <div id="skills_box">
-        <table id="skills_table"></table>
-    </div>
+            <label for="show_all_skills">Show all Skills? </label>
+            <input type="checkbox" id="show_all_skills">
+            <table id="skills_table"></table>
+        </div>
     </div>
     <div id="character_levels" style="display: none;">
         <table id="character_levels_table"></table>
