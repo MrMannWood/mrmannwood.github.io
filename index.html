@@ -11,7 +11,8 @@
     <link rel="icon" type="image/png" href="favicon/favicon.ico">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="pathfinder.css">
-    <script type="text/javascript" src="weapons.json"></script>
+    <script src="db.js" defer></script>
+    <script src="pathfinder.js" defer></script>
 </head>
 <body>
     <div id="nav_bar_box" style="display: none;">
@@ -36,6 +37,7 @@
                     <p id="strength_score">
                 </td>
                 <td>
+                    <label for="strength_temp_adjustment" hidden></label>
                     <input type="number" id="strength_temp_adjustment" value ="0">
                 </td>
                 <td>
@@ -50,6 +52,7 @@
                     <p id="dexterity_score">
                 </td>
                 <td>
+                    <label for="dexterity_temp_adjustment" hidden></label>
                     <input type="number" id="dexterity_temp_adjustment" value ="0">
                 </td>
                 <td>
@@ -64,6 +67,7 @@
                     <p id="constitution_score">
                 </td>
                 <td>
+                    <label for="constitution_temp_adjustment" hidden></label>
                     <input type="number" id="constitution_temp_adjustment" value ="0">
                 </td>
                 <td>
@@ -78,6 +82,7 @@
                     <p id="intelligence_score">
                 </td>
                 <td>
+                    <label for="intelligence_temp_adjustment" hidden></label>
                     <input type="number" id="intelligence_temp_adjustment" value ="0">
                 </td>
                 <td>
@@ -92,6 +97,7 @@
                     <p id="wisdom_score">
                 </td>
                 <td>
+                    <label for="wisdom_temp_adjustment" hidden></label>
                     <input type="number" id="wisdom_temp_adjustment" value ="0">
                 </td>
                 <td>
@@ -106,6 +112,7 @@
                     <p id="charisma_score">
                 </td>
                 <td>
+                    <label for="charisma_temp_adjustment" hidden></label>
                     <input type="number" id="charisma_temp_adjustment" value ="0">
                 </td>
                 <td>
@@ -113,25 +120,52 @@
                 </td>
             </tr>
         </table>
+
+        <div id="damage_box">
+            <table id="damage_table">
+                <tr>
+                    <th><button id="take_damage">Add Damage</button></th>
+                    <th><button id="heal_damage">Heal</button></th>
+                    <th><button id="reset_damage">Reset</button></th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div id="hit_points_box">
+            <table id="hit_points_table">
+                <tr>
+                    <th>Current HP</th>
+                    <th>Max HP</th>
+                    <th>Damage</th>
+                </tr>
+                <tr>
+                    <td id="current_hit_points"></td>
+                    <td id="max_hit_points"></td>
+                    <td id="current_damage"></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- TODO AC-->
+
+        <div id="saves_bonus_box">
+            <label for="saves_bonus_table" hidden>Saves</label>
+            <table id="saves_bonus_table"></table>
+        </div>
+
         <div id="base_attack_bonus_box">
             <label for="base_attack_bonus">BAB: </label>
             <p id="base_attack_bonus">
-            <br/>
         </div>
-        <div id="range_to_target_box" style="display: none;">
-            <label for="range_to_target">Range? </label>
-            <input type="number" id="range_to_target" step="5" value="30">
-            <br/>
-        </div>
-        <div id="rapid_shot_box" style="display: none;">
-            <label for="rapid_shot">Rapid Shot? </label>
-            <input type="checkbox" id="rapid_shot">
-            <br/>
-        </div>
-        <div id="two_handed_attack_box" style="display: none;">
-            <label for="two_handed_attack">Two Handed? </label>
-            <input type="checkbox" id="two_handed_attack">
-            <br/>
+
+        <br/>
+        <br/>
+        <div id="attack_options_box">
+            <label for="attack_options_table">Attack Options</label>
+            <table id="attack_options_table"></table>
         </div>
 
         <br/>
@@ -158,8 +192,5 @@
             <table id="modal_table"></table>
         </div>
     </div>
-
-    <script src="db.js"></script>
-    <script src="pathfinder.js"></script>
 </body>
 </html>
