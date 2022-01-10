@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Chain Shirt",
+    "link": "https://www.d20pfsrd.com/equipment/armor/chain-shirt/",
+    "type": "light",
+    "cost": 1000000,
+    "weight": 2500,
+    "acBonus": 4,
+    "maxDexBonus": 4,
+    "acPenalty": -2,
+    "arcaneSpellFailure": 20
+  }
+]

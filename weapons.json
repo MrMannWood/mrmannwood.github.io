@@ -1,6 +1,8 @@
 [
     {
         "name": "Longbow",
+        "cost": 750000,
+        "weight": 300,
         "damage": {
             "small": "1d6",
             "medium": "1d8"
@@ -14,6 +16,8 @@
     },
     {
         "name": "Rapier",
+        "cost": 200000,
+        "weight": 200,
         "damage": {
             "small": "1d4",
             "medium": "1d6"
@@ -27,6 +31,8 @@
     },
     {
         "name": "Curved Blade, Elven",
+        "cost": 800000,
+        "weight": 700,
         "damage": {
             "small": "1d8",
             "medium": "1d10"
@@ -39,6 +45,8 @@
     },
     {
         "name": "Whip",
+        "cost": 10000,
+        "weight": 200,
         "damage": {
             "small": "1d2",
             "medium": "1d3"
@@ -51,6 +59,8 @@
     },
     {
         "name": "Chain, Spiked",
+        "cost": 250000,
+        "weight": 1000,
         "damage": {
             "small": "1d6",
             "medium": "2d4"

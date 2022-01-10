@@ -1,6 +1,6 @@
 async function openDatabase() {
     return await new Promise((resolve, reject) => {
-            let openRequest = indexedDB.open('database.db', 8);
+            let openRequest = indexedDB.open('database.db', 10);
             let upgradeNeeded = false
             openRequest.onupgradeneeded  = function(event) {
                 upgradeNeeded = true
@@ -8,10 +8,14 @@ async function openDatabase() {
                 if (db.objectStoreNames.contains("weapons")) {
                     db.deleteObjectStore("weapons");
                 }
+                if (db.objectStoreNames.contains("armor")) {
+                    db.deleteObjectStore("armor");
+                }
                 if (db.objectStoreNames.contains("classes")) {
                     db.deleteObjectStore("classes");
                 }
                 db.createObjectStore("weapons", { keyPath: "name" });
+                db.createObjectStore("armor", { keyPath: "name" });
                 db.createObjectStore("classes", { keyPath: "name" });
             };
             openRequest.onerror = function() {
@@ -23,42 +27,51 @@ async function openDatabase() {
         });
 }
 
-async function writeWeaponsToDatabase(db, weapons) {
+async function _writeJsonListToDatabase(db, name, json) {
     return await Promise.resolve(
         new Promise((resolve, reject) => {
-            let transaction = db.transaction("weapons", "readwrite")
-            let weaponsTransaction = transaction.objectStore("weapons");
-            JSON.parse(weapons).forEach(function(weapon, idx) {
-                weaponsTransaction.add(weapon);
+            let transaction = db.transaction(name, "readwrite")
+            let listTransaction = transaction.objectStore(name);
+            JSON.parse(json).forEach(function(weapon, idx) {
+                listTransaction.add(weapon);
             })
             transaction.commit()
-            transaction.oncomplete = function() {
-                resolve();
-            }
-            transaction.onabort = function() {
-                reject();
-            }
+            transaction.oncomplete = function() { resolve(); }
+            transaction.onabort = function() { reject(); }
         })
     );
 }
 
-async function writeClassesToDatabase(db, classes) {
-    return await Promise.resolve(
-        new Promise((resolve, reject) => {
-            let transaction = db.transaction("classes", "readwrite")
-            let classesTransaction = transaction.objectStore("classes");
-            JSON.parse(classes).forEach(function(pfClass, idx) {
-                classesTransaction.add(pfClass);
-            })
-            transaction.commit()
-            transaction.oncomplete = function() {
-                resolve();
-            }
-            transaction.onabort = function() {
+async function _readJsonObjectFromDatabase(db, name, id) {
+    return new Promise((resolve, reject) => {
+        let transaction = db.transaction(name)
+        let itemTransaction = transaction.objectStore(name);
+        let request = itemTransaction.get(id);
+
+        request.onsuccess = function() {
+            let result = request.result;
+            if (result) {
+                resolve(result)
+            } else {
                 reject();
             }
-        })
-    );
+        }
+        transaction.onabort = function() {
+            reject();
+        }
+    });
+}
+
+async function writeWeaponsToDatabase(db, weapons) {
+    return _writeJsonListToDatabase(db, "weapons", weapons);
+}
+
+async function writeArmorToDatabase(db, classes) {
+    return _writeJsonListToDatabase(db, "armor", classes);
+}
+
+async function writeClassesToDatabase(db, classes) {
+    return _writeJsonListToDatabase(db, "classes", classes);
 }
 
 async function readWeapons(db) {
@@ -87,41 +100,13 @@ async function readWeapons(db) {
 }
 
 function readWeapon(db, weapon) {
-    return new Promise((resolve, reject) => {
-        let transaction = db.transaction("weapons")
-        let weaponsTransaction = transaction.objectStore("weapons");
-        let request = weaponsTransaction.get(weapon);
+    return _readJsonObjectFromDatabase(db, "weapons", weapon)
+}
 
-        request.onsuccess = function() {
-            let result = request.result;
-            if (result) {
-                resolve(result)
-            } else {
-                reject();
-            }
-        }
-        transaction.onabort = function() {
-            reject();
-        }
-    });
+function readArmor(db, armor) {
+    return _readJsonObjectFromDatabase(db, "armor", armor)
 }
 
 function readClass(db, pfClass) {
-    return new Promise((resolve, reject) => {
-        let transaction = db.transaction("classes")
-        let classTransaction = transaction.objectStore("classes");
-        let request = classTransaction.get(pfClass);
-
-        request.onsuccess = function() {
-            let result = request.result;
-            if (result) {
-                resolve(result)
-            } else {
-                reject();
-            }
-        }
-        transaction.onabort = function() {
-            reject();
-        }
-    });
+    return _readJsonObjectFromDatabase(db, "classes", pfClass)
 }

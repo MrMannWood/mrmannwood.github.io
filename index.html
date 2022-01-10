@@ -121,6 +121,8 @@
             </tr>
         </table>
 
+        <br/>
+        <br/>
         <div id="damage_box">
             <table id="damage_table">
                 <tr>
@@ -149,16 +151,32 @@
             </table>
         </div>
 
-        <!-- TODO AC-->
+        <br/>
+        <br/>
+        <div id="armor_class_box">
+            <p id="armor_class_total" style="display:inline"></p>
+            <label for="armor_class_total">: AC </label>
+            <br/>
+            <p id="armor_class_touch" style="display:inline"></p>
+            <label for="armor_class_touch">: Touch</label>
+            <br/>
+            <p id="armor_class_flat_footed" style="display:inline"></p>
+            <label for="armor_class_flat_footed">: Flat Footed</label>
+            <br/>
+        </div>
 
+        <br/>
+        <br/>
         <div id="saves_bonus_box">
             <label for="saves_bonus_table" hidden>Saves</label>
             <table id="saves_bonus_table"></table>
         </div>
 
+        <br/>
+        <br/>
         <div id="base_attack_bonus_box">
             <label for="base_attack_bonus">BAB: </label>
-            <p id="base_attack_bonus">
+            <p id="base_attack_bonus" style="display:inline"></p>
         </div>
 
         <br/>
@@ -181,7 +199,15 @@
             <input type="checkbox" id="show_all_skills">
             <table id="skills_table"></table>
         </div>
+
+        <br/>
+        <br/>
+        <div id="equipment_box">
+            <label for="equipment_table">Equipment</label>
+            <table id="equipment_table"></table>
+        </div>
     </div>
+
     <div id="character_levels" style="display: none;">
         <table id="character_levels_table"></table>
     </div>
