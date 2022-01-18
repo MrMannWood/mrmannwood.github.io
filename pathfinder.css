@@ -1,7 +1,25 @@
-/* Color Reference
-    background: #FFFFFF
-    background-tinted: #00000066
-*/
+:root {
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color-normal: var(--color-white);
+    --background-color-normal: var(--color-black);
+  }
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --text-color-normal: var(--color-black);
+    --background-color-normal: var(--color-white);
+  }
+}
+
+html {
+  color: var(--text-color-normal);
+  background-color: var(--background-color-normal);
+}
+
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -11,12 +29,20 @@
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: #ffffff;
-  background-color: #00000066;
+  background-color: var(--background-color-normal);
+  background-color: #FFFFFF66;
 }
 .modal-content {
-  background-color: #ffffff;
+  background-color: var(--background-color-normal);
   margin: auto;
   padding: 20px;
   width: 80%;
 }
+input {
+  color: var(--text-color-normal);
+  background-color: var(--background-color-normal);
+}
+table, th, td {
+  border: 1px solid var(--text-color-normal);
+}
+
