@@ -42,7 +42,3 @@ input {
   color: var(--text-color-normal);
   background-color: var(--background-color-normal);
 }
-table, th, td {
-  border: 1px solid var(--text-color-normal);
-}
-
