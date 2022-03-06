@@ -1,6 +1,6 @@
-async function openDatabase() {
-    return await new Promise((resolve, reject) => {
-            let openRequest = indexedDB.open('database.db', 10);
+function openDatabase() {
+    return new Promise((resolve, reject) => {
+            let openRequest = indexedDB.open('database.db', 11);
             let upgradeNeeded = false
             openRequest.onupgradeneeded  = function(event) {
                 upgradeNeeded = true
@@ -27,8 +27,8 @@ async function openDatabase() {
         });
 }
 
-async function _writeJsonListToDatabase(db, name, json) {
-    return await Promise.resolve(
+function _writeJsonListToDatabase(db, name, json) {
+    return Promise.resolve(
         new Promise((resolve, reject) => {
             let transaction = db.transaction(name, "readwrite")
             let listTransaction = transaction.objectStore(name);
@@ -42,7 +42,7 @@ async function _writeJsonListToDatabase(db, name, json) {
     );
 }
 
-async function _readJsonObjectFromDatabase(db, name, id) {
+function _readJsonObjectFromDatabase(db, name, id) {
     return new Promise((resolve, reject) => {
         let transaction = db.transaction(name)
         let itemTransaction = transaction.objectStore(name);
@@ -62,20 +62,20 @@ async function _readJsonObjectFromDatabase(db, name, id) {
     });
 }
 
-async function writeWeaponsToDatabase(db, weapons) {
+function writeWeaponsToDatabase(db, weapons) {
     return _writeJsonListToDatabase(db, "weapons", weapons);
 }
 
-async function writeArmorToDatabase(db, classes) {
+function writeArmorToDatabase(db, classes) {
     return _writeJsonListToDatabase(db, "armor", classes);
 }
 
-async function writeClassesToDatabase(db, classes) {
+function writeClassesToDatabase(db, classes) {
     return _writeJsonListToDatabase(db, "classes", classes);
 }
 
-async function readWeapons(db) {
-    return await Promise.resolve(
+function readWeapons(db) {
+    return Promise.resolve(
         new Promise((resolve, reject) => {
             let transaction = db.transaction("weapons")
             let weaponsTransaction = transaction.objectStore("weapons");
